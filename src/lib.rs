@@ -2,6 +2,9 @@
 //!
 //! This crate provides the core Rust implementation for CocoIndex,
 //! exposing Python bindings via PyO3.
+//!
+//! Personal fork: added module-level docs for easier navigation when
+//! exploring the codebase.
 
 use pyo3::prelude::*;
 
@@ -15,6 +18,12 @@ pub mod utils;
 ///
 /// Registers all Python-accessible classes and functions from the
 /// Rust implementation.
+///
+/// # Registered Types
+/// - `indexing::Index` / `indexing::IndexConfig` — core index types
+/// - `pipeline::Pipeline` / `pipeline::PipelineStep` — pipeline components
+/// - `storage::StorageBackend` — pluggable storage backends
+/// - `utils::version` — returns the current crate version string
 #[pymodule]
 fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // Register core indexing types
